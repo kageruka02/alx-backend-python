@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
-
-""" Async comp """
-
-from asyncio import sleep
+"async generator"
+import asyncio
 from random import uniform
-from typing import Generator
+from typing import AsyncGenerator
 
-
-async def async_generator() -> Generator[float, None, None]:
-    """ async generator """
+async def async_generator() -> AsyncGenerator[float, None]:
+    """An async generator that yields a random float between 0 and 10, 10 times"""
     for _ in range(10):
-        await sleep(1)
+        await asyncio.sleep(1)
         yield uniform(0, 10)
